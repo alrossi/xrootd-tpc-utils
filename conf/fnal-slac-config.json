@@ -1,0 +1,80 @@
+{
+    "endpoints": [
+        {
+            "id": "SLAC", 
+            "score": 0, 
+            "type": "XrootD", 
+            "url": "root://griddev03.slac.stanford.edu:2094//xrootd/atlas/tpctest", 
+            "version": "4.9.1"
+        }, 
+        {
+            "id": "FNAL",
+            "type": "dCache",
+            "version": "6.0.0-SNAPSHOT",
+            "url": "root://stkendca06a.fnal.gov:1094//pnfs/fnal.gov/VOs/dteam",
+            "score": 0
+        }
+    ], 
+    "gsi-settings": {
+        "generate-proxy": false, 
+        "proxy-init-args": "-voms dteam -hours 72", 
+        "proxy-init-exec": "voms-proxy-init", 
+        "x509-cert-dir": "/etc/grid-security/certificates", 
+        "x509-user-cert": "/etc/grid-security/wlcg-doma/hostcert.pem", 
+        "x509-user-key": "/etc/grid-security/wlcg-doma/hostkey.pem", 
+        "x509-user-proxy": "/etc/grid-security/wlcg-doma/x509up_smoketests"
+    }, 
+    "local-data-file": {
+        "generate": true, 
+        "generator-args": "if=/dev/zero of=/home/arossi/Desktop/arossi-test count=1 bs=1048576", 
+        "generator-exec": "dd", 
+        "name": "arossi-test",
+        "parent": "/home/arossi/Desktop"
+    }, 
+    "reference-endpoint": {
+        "id": "SLAC", 
+        "type": "XrootD", 
+        "url": "root://griddev03.slac.stanford.edu:2094//xrootd/atlas/tpctest", 
+        "version": "4.9.1"
+    }, 
+    "report": {
+        "email-from": "test@otfrid.fnal.gov", 
+        "email-to": [
+            "arossi@fnal.gov"
+        ], 
+        "full-mesh-output-name": "fnal-slac-mesh", 
+        "full-mesh-summary-name": "fnal-slac-mesh-summary", 
+        "log-dir": "/home/arossi/Work/fnal/dCache/xrootd-tpc-utils/test/logs", 
+        "output-dir": "/home/arossi/Work/fnal/dCache/xrootd-tpc-utils/test/out", 
+        "send-email": true, 
+        "smoke-output-name": "fnal-slac", 
+        "smoke-summary-name": "fnal-slac-summary", 
+        "smtp-host": "ex-smtp.fnal.gov"
+    }, 
+    "task-phases": {
+        "download": {
+            "capture-streams": true, 
+            "timeout-in-seconds": 60
+        }, 
+        "remove": {
+            "capture-streams": true, 
+            "timeout-in-seconds": 60
+        }, 
+        "tpc": {
+            "capture-streams": true, 
+            "timeout-in-seconds": 120, 
+            "with-delegation": true, 
+            "without-delegation": true
+        }, 
+        "upload": {
+            "capture-streams": true, 
+            "timeout-in-seconds": 60
+        }
+    }, 
+    "xrootd-settings": {
+        "cksum": "-C adler32", 
+        "debug-args": "-d 3", 
+        "home": "/usr/share/xrootd/xrootd-4.9.1", 
+        "lib": "lib64"
+    }
+}

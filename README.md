@@ -1,2 +1,1 @@
-# xrootd-tpc-utils
-system tests
+xrootd_tests/README.md

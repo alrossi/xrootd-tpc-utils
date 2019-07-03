@@ -1,0 +1,93 @@
+{
+    "endpoints": [
+        {
+            "id": "OU",
+            "type": "XrootD",
+            "version": "4.9.1",
+            "url": "root://se1.oscer.ou.edu//xrd/dteam/doma/",
+            "score": 0
+        },
+        {
+            "id": "PRAGUE",
+            "type": "DPM",
+            "version": "1.12.0",
+            "url": "root://golias100.farm.particle.cz:1094//dpm/farm.particle.cz/home/dteam/tpc-test",
+            "score": 0
+        },
+        {
+            "id": "UKI-GLASGOW",
+            "type": "DPM",
+            "version": "1.10.3",
+            "url": "root://svr018.gla.scotgrid.ac.uk//dpm/gla.scotgrid.ac.uk/home/dteam",
+            "score": 0
+        },
+        {
+            "id": "CERN-TRUNK",
+            "type": "DPM",
+            "version": "1.11.0",
+            "url": "root://dpmhead-trunk.cern.ch//dpm/cern.ch/home/dteam",
+            "score": 0
+        }
+    ], 
+    "gsi-settings": {
+        "generate-proxy": false, 
+        "proxy-init-args": "-voms dteam -hours 72", 
+        "proxy-init-exec": "voms-proxy-init", 
+        "x509-cert-dir": "/etc/grid-security/certificates", 
+        "x509-user-cert": "/etc/grid-security/wlcg-doma/hostcert.pem", 
+        "x509-user-key": "/etc/grid-security/wlcg-doma/hostkey.pem", 
+        "x509-user-proxy": "/etc/grid-security/wlcg-doma/x509up_smoketests"
+    }, 
+    "local-data-file": {
+        "generate": true, 
+        "generator-args": "if=/dev/zero of=/home/arossi/Desktop/arossi-test count=1 bs=1048576", 
+        "generator-exec": "dd", 
+        "name": "arossi-test",
+        "parent": "/home/arossi/Desktop"
+    }, 
+    "reference-endpoint": {
+        "id": "SLAC", 
+        "type": "XrootD", 
+        "url": "root://griddev03.slac.stanford.edu:2094//xrootd/atlas/tpctest", 
+        "version": "4.9.1"
+    }, 
+    "report": {
+        "email-from": "test@otfrid.fnal.gov", 
+        "email-to": [
+            "arossi@fnal.gov"
+        ], 
+        "full-mesh-output-name": "small-mesh", 
+        "full-mesh-summary-name": "small-summary", 
+        "log-dir": "/home/arossi/Work/fnal/dCache/xrootd-tpc-utils/test/logs", 
+        "output-dir": "/home/arossi/Work/fnal/dCache/xrootd-tpc-utils/test/out", 
+        "send-email": true, 
+        "smoke-output-name": "small", 
+        "smoke-summary-name": "small-summary", 
+        "smtp-host": "ex-smtp.fnal.gov"
+    }, 
+    "task-phases": {
+        "download": {
+            "capture-streams": true, 
+            "timeout-in-seconds": 60
+        }, 
+        "remove": {
+            "capture-streams": true, 
+            "timeout-in-seconds": 60
+        }, 
+        "tpc": {
+            "capture-streams": true, 
+            "timeout-in-seconds": 120, 
+            "with-delegation": true, 
+            "without-delegation": false
+        }, 
+        "upload": {
+            "capture-streams": true, 
+            "timeout-in-seconds": 60
+        }
+    }, 
+    "xrootd-settings": {
+        "debug-args": "-d 3", 
+        "home": "/usr/share/xrootd/xrootd-4.9.1", 
+        "lib": "lib64"
+    }
+}

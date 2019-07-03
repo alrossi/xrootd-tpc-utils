@@ -1,0 +1,216 @@
+{
+    "xrootd-settings":
+        {
+            "home": "/usr/share/xrootd/xrootd-4.9.1",
+            "lib": "lib64",
+            "debug-args": "-d 3",
+            "cksum": "-C adler32"
+        },
+    "gsi-settings": 
+        {
+            "x509-user-key":    "/etc/grid-security/wlcg-doma/hostkey.pem",
+            "x509-user-cert":   "/etc/grid-security/wlcg-doma/hostcert.pem",
+            "x509-cert-dir":    "/etc/grid-security/certificates",
+            "x509-user-proxy":  "/etc/grid-security/wlcg-doma/x509up_smoketests",
+            "generate-proxy":   false,
+            "proxy-init-exec":  "voms-proxy-init",
+            "proxy-init-args":  "-voms dteam -hours 72"
+        },
+    "local-data-file":
+        {
+            "name": "xrootd-test-data",
+            "parent": "/tmp",
+            "generate": true,
+            "generator-exec": "dd",
+            "generator-args": "if=/dev/zero of=/tmp/xrootd-test-data count=1 bs=1048576"
+        },
+    "task-phases":
+        {
+            "upload": 
+                {
+                    "capture-streams": false,
+                    "timeout-in-seconds": 60
+                },
+            "download": 
+                {
+                    "capture-streams": false,
+                    "timeout-in-seconds": 60
+                },
+            "tpc": 
+                {
+                    "capture-streams": false,
+                    "timeout-in-seconds": 120,
+                    "with-delegation": true,
+                    "without-delegation": false
+                },
+            "remove": 
+                {
+                    "capture-streams": false,
+                    "timeout-in-seconds": 60
+                }
+        },
+    "reference-endpoint":
+        {
+            "id": "SLAC",
+            "type": "XrootD",
+            "version": "4.9.1",
+            "url": "root://griddev03.slac.stanford.edu:2094//xrootd/atlas/tpctest",
+            "score": 0
+        },
+    "endpoints": 
+        [
+            {
+                "id": "RAL-LCG2",
+                "type": "Echo",
+                "version": "4.9.1",
+                "url": "root://xrootd.echo.stfc.ac.uk//dteam:test/",
+                "score": 0
+            },
+            {
+                "id": "PRAGUE",
+                "type": "DPM",
+                "version": "1.12.0",
+                "url": "root://golias100.farm.particle.cz:1094//dpm/farm.particle.cz/home/dteam/tpc-test",
+                "score": 0
+            },
+            {
+                "id": "UKI-GLASGOW",
+                "type": "DPM",
+                "version": "1.10.3",
+                "url": "root://svr018.gla.scotgrid.ac.uk//dpm/gla.scotgrid.ac.uk/home/dteam",
+                "score": 0
+            },
+            {
+                "id": "UKI-BRUNEL",
+                "type": "DPM",
+                "version": "1.10.4",
+                "url": "root://dc2-grid-64.brunel.ac.uk:1094//dpm/brunel.ac.uk/home/dteam/wlcg-tpc",
+                "score": 0
+            },
+            {
+                "id": "UKI-MAN1",
+                "type": "DPM",
+                "version": "1.12.0",
+                "url": "root://vm33.in.tier2.hep.manchester.ac.uk:1094//dpm/tier2.hep.manchester.ac.uk/home/dteam",
+                "score": 0
+            },
+            {
+                "id": "UKI-MAN2",
+                "type": "DPM",
+                "version": "1.12.0",
+                "url": "root://bohr3226.tier2.hep.manchester.ac.uk:1094//dpm/tier2.hep.manchester.ac.uk/home/dteam",
+                "score": 0
+            },
+            {
+                "id": "UKI-LANC",
+                "type": "DPM",
+                "version": "1.10.4",
+                "url": "root://fal-pygrid-30.lancs.ac.uk:1094//dpm/lancs.ac.uk/home/dteam",
+                "score": 0
+            },
+            {
+                "id": "CERN-TRUNK",
+                "type": "DPM",
+                "version": "1.11.0",
+                "url": "root://dpmhead-trunk.cern.ch//dpm/cern.ch/home/dteam",
+                "score": 0
+            },
+            {
+                "id": "CERN-RC",
+                "type": "DPM",
+                "version": "1.10.0",
+                "url": "root://dpmhead-rc.cern.ch//dpm/cern.ch/home/dteam",
+                "score": 0
+            },
+            {
+                "id": "DESY-PROM",
+                "type": "dCache",
+                "version": "5.2.0-SNAPSHOT",
+                "url": "root://prometheus.desy.de:1095//VOs/dteam",
+                "score": 0
+            },
+            {
+                "id": "BNL",
+                "type": "dCache",
+                "version": "?",
+                "url": "root://dcdoor16.usatlas.bnl.gov//pnfs/usatlas.bnl.gov/users/hiroito/testtpc",
+                "score": 0
+            },
+            {
+                "id": "CERN-EOS",
+                "type": "EOS",
+                "version": "4.3.8",
+                "url": "root://eospps.cern.ch//eos/opstest/tpc/",
+                "score": 0
+            },
+            {
+                "id": "SLAC",
+                "type": "XrootD",
+                "version": "4.9.1",
+                "url": "root://griddev03.slac.stanford.edu:2094//xrootd/atlas/tpctest",
+                "score": 0
+            },
+            {
+                "id": "OU",
+                "type": "XrootD",
+                "version": "4.9.1",
+                "url": "root://se1.oscer.ou.edu//xrd/dteam/doma/",
+                "score": 0
+            },
+            {
+                "id": "UNI-BONN",
+                "type": "CephFS",
+                "version": "4.10.0-rc2",
+                "url": "root://xrootd.physik.uni-bonn.de//cephfs/grid/atlas/user/scratch/",
+                "score": 0
+            },
+            {
+                "id": "FNAL",
+                "type": "dCache",
+                "version": "5.2.0-SNAPSHOT",
+                "url": "root://stkendca06a.fnal.gov:1094//pnfs/fnal.gov/VOs/dteam",
+                "score": 0
+            },
+            {
+                "id": "BEIJING-LCG2",
+                "type": "DPM",
+                "version": "1.10.5",
+                "url": "root://dpmtest.ihep.ac.cn:1094/dpm/ihep.ac.cn//home/dteam/",
+                "score": 0
+            },
+            {
+                "id": "BRUSSELS",
+                "type": "dCache",
+                "version": "4.2.18",
+                "url": "root://maite.iihe.ac.be/pnfs/iihe//dteam",
+                "score": 0
+            },
+            {
+                "id": "TRIUMF",
+                "type": "dCache",
+                "version": "4.2.27",
+                "url": "root://ppshead.lcg.triumf.ca:1094//dteam",
+                "score": 0
+            },
+            {
+                "id": "CALTECH",
+                "type": "HDFS",
+                "version": "4.9.1-1.osg34.el7",
+                "url": "root://transfer-1.ultralight.org:1094//store/user/dteam/",
+                "score": 0
+            }
+        ],
+    "report":
+        {
+            "output-dir": "/tmp",
+            "log-dir": "/tmp/logs",
+            "full-mesh-output-name": "wlcg-doma-mesh",
+            "full-mesh-summary-name": "wlcg-doma-mesh-summary",
+            "smoke-output-name": "wlcg-doma",
+            "smoke-summary-name": "wlcg-doma-summary",
+            "send-email": false,
+            "email-from": "tester@fnal.gov",
+            "email-to": ["wlcg-doma-tpc@cern.ch"],
+            "smtp-host": "ex-smtp.example.org"
+        }
+}
