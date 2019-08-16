@@ -365,21 +365,22 @@ def validate_configuration(config):
             return 13
         config['xrootd-settings']['xrdfs'] = "%s/bin/xrdfs"%xrd_home
 
-    proxy_exec = get_dict_value(['gsi-settings', 'proxy-init-exec'], config)
-    if proxy_exec and not (find_executable(proxy_exec)):
-        print_error("could not find executable %s"%proxy_exec)
-        return 14
-
     data_gen_exec = get_dict_value(['local-data-file', 'generator-exec'], config)
     if data_gen_exec and not (find_executable(data_gen_exec)):
         print_error("could not find executable %s/"%data_gen_exec)
-        return 15
+        return 14
 
     return 0
 
 def validate_proxy(gsi_settings):
     if get_dict_value(["generate-proxy"], gsi_settings):
-        rc = execute_command("%s %s"%(get_dict_value(["proxy-init-exec"], gsi_settings), 
+        proxy_exec = get_dict_value(["proxy-init-exec"], gsi_settings)
+        
+        if not proxy_exec or not (find_executable(proxy_exec)):
+            print_error("could not find proxy init executable (%s)"%proxy_exec)
+            return 15
+
+        rc = execute_command("%s %s"%(proxy_exec, 
                                       get_dict_value(["proxy-init-args"], gsi_settings)))
         if rc :
             print_error("Failed to create proxy")
@@ -424,7 +425,6 @@ def validate_proxy(gsi_settings):
     timeleft = ""
     lines = output.split('\n')
     for line in lines:
-	print line
         if "timeleft" in line:
             timeleft = line
 
