@@ -190,7 +190,7 @@ class TestSuite(object):
             return 4
 
         self.config['xrootd-settings']['version'] \
-            = get_version(get_dict_value(['xrootd-settings', 'home'], self.config))
+            = get_version(get_dict_value(['xrootd-settings', 'xrdcp'], self.config))
             
         print_message("Checking for data file ...")
         if generate_data_file(self.config):

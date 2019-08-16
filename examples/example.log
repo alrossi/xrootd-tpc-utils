@@ -1,0 +1,75 @@
+2019-07-03 10:38:18 : Using config file: ../conf/local-config.json
+2019-07-03 10:38:18 : Validating configuration ...
+2019-07-03 10:38:18 : Preparing test environment ...
+2019-07-03 10:38:18 : XrootD client version: v4.9.1
+2019-07-03 10:38:18 : Checking for data file ...
+2019-07-03 10:38:18 : Using the following endpoints: ['SLAC', 'FNAL']
+2019-07-03 10:38:18 : Launching workers ...
+2019-07-03 10:38:18 : Attempting setup ...
+2019-07-03 10:38:18 : wait_for_completion, counter 0, end_value 1
+2019-07-03 10:38:18 : Worker 1, RUNNING set-up-1: SLAC-upload
+2019-07-03 10:38:18 : running data upload to SLAC
+2019-07-03 10:38:18 : /usr/share/xrootd/xrootd-4.9.1/bin/xrdcp -d 3 -C adler32 /home/arossi/Desktop/arossi-test root://fndcatemp2.fnal.gov:1094//data/xrootdfs/arossi-test-7d3666da-4aa6-442a-a1db-21ec940c0f35
+2019-07-03 10:38:18 : data upload to SLAC succeeded
+2019-07-03 10:38:18 : Worker 1, SUCCESS for set-up-1: SLAC-upload
+2019-07-03 10:38:18 : wait_for_completion, counter 1, end_value 1
+2019-07-03 10:38:18 : URLS: (UPLOAD root://fndcatemp2.fnal.gov:1094//data/xrootdfs/arossi-test-7d3666da-4aa6-442a-a1db-21ec940c0f35)(DST_D root://fndcatemp2.fnal.gov:1094//data/xrootdfs/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D)(RET_D root://fndcatemp2.fnal.gov:1094//data/xrootdfs/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D)(DWNLD_D /home/arossi/Desktop/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D)(DST_NDroot://fndcatemp2.fnal.gov:1094//data/xrootdfs/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-ND)(RET_ND root://fndcatemp2.fnal.gov:1094//data/xrootdfs/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-ND)(DWNLD_ND /home/arossi/Desktop/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-ND)
+2019-07-03 10:38:18 : URLS: (UPLOAD root://fndcatemp1.fnal.gov:1094//pnfs/fs/usr/test/arossi/volatile/arossi-test-7d3666da-4aa6-442a-a1db-21ec940c0f35)(DST_D root://fndcatemp2.fnal.gov:1094//data/xrootdfs/from-FNAL-7d3666da-4aa6-442a-a1db-21ec940c0f35-D)(RET_D root://fndcatemp1.fnal.gov:1094//pnfs/fs/usr/test/arossi/volatile/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D)(DWNLD_D /home/arossi/Desktop/from-FNAL-7d3666da-4aa6-442a-a1db-21ec940c0f35-D)(DST_NDroot://fndcatemp2.fnal.gov:1094//data/xrootdfs/from-FNAL-7d3666da-4aa6-442a-a1db-21ec940c0f35-ND)(RET_ND root://fndcatemp1.fnal.gov:1094//pnfs/fs/usr/test/arossi/volatile/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-ND)(DWNLD_ND /home/arossi/Desktop/from-FNAL-7d3666da-4aa6-442a-a1db-21ec940c0f35-ND)
+2019-07-03 10:38:18 : Worker 0, RUNNING round-trip-1: SLAC-round-trip
+2019-07-03 10:38:18 : Worker 2, RUNNING round-trip-2: FNAL-round-trip
+2019-07-03 10:38:18 : TPC from SLAC to SLAC (d)
+2019-07-03 10:38:18 : UPLOAD to FNAL
+2019-07-03 10:38:18 : wait_for_completion, counter 0, end_value 2
+2019-07-03 10:38:18 : running data upload to FNAL
+2019-07-03 10:38:18 : running third-party transfer with delegate from SLAC to SLAC
+2019-07-03 10:38:18 : /usr/share/xrootd/xrootd-4.9.1/bin/xrdcp -d 3 -C adler32 /home/arossi/Desktop/arossi-test root://fndcatemp1.fnal.gov:1094//pnfs/fs/usr/test/arossi/volatile/arossi-test-7d3666da-4aa6-442a-a1db-21ec940c0f35
+2019-07-03 10:38:18 : /usr/share/xrootd/xrootd-4.9.1/bin/xrdcp -d 3 -C adler32 --tpc delegate only root://fndcatemp2.fnal.gov:1094//data/xrootdfs/arossi-test-7d3666da-4aa6-442a-a1db-21ec940c0f35 root://fndcatemp2.fnal.gov:1094//data/xrootdfs/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D
+2019-07-03 10:38:18 : data upload to FNAL succeeded
+2019-07-03 10:38:18 : TPC from FNAL to SLAC (d)
+2019-07-03 10:38:18 : running third-party transfer with delegate from FNAL to SLAC
+2019-07-03 10:38:18 : /usr/share/xrootd/xrootd-4.9.1/bin/xrdcp -d 3 -C adler32 --tpc delegate only root://fndcatemp1.fnal.gov:1094//pnfs/fs/usr/test/arossi/volatile/arossi-test-7d3666da-4aa6-442a-a1db-21ec940c0f35 root://fndcatemp2.fnal.gov:1094//data/xrootdfs/from-FNAL-7d3666da-4aa6-442a-a1db-21ec940c0f35-D
+2019-07-03 10:38:19 : third-party transfer with delegate from SLAC to SLAC succeeded
+2019-07-03 10:38:19 : DOWNLOAD from SLAC
+2019-07-03 10:38:19 : running data download from SLAC
+2019-07-03 10:38:19 : /usr/share/xrootd/xrootd-4.9.1/bin/xrdcp -d 3 -C adler32 root://fndcatemp2.fnal.gov:1094//data/xrootdfs/arossi-test-7d3666da-4aa6-442a-a1db-21ec940c0f35 /home/arossi/Desktop/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D
+2019-07-03 10:38:19 : data download from SLAC succeeded
+2019-07-03 10:38:19 : running clean-up on root://fndcatemp2.fnal.gov:1094//data/xrootdfs/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D
+2019-07-03 10:38:19 : /usr/share/xrootd/xrootd-4.9.1/bin/xrdfs fndcatemp2.fnal.gov:1094 rm //data/xrootdfs/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D
+2019-07-03 10:38:20 : clean-up on root://fndcatemp2.fnal.gov:1094//data/xrootdfs/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D succeeded
+2019-07-03 10:38:20 : removing local /home/arossi/Desktop/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D
+2019-07-03 10:38:20 : Worker 0, SUCCESS for round-trip-1: SLAC-round-trip
+2019-07-03 10:38:20 : wait_for_completion, counter 1, end_value 2
+2019-07-03 10:38:20 : third-party transfer with delegate from FNAL to SLAC succeeded
+2019-07-03 10:38:20 : RETURN TPC, using root://fndcatemp2.fnal.gov:1094//data/xrootdfs/from-FNAL-7d3666da-4aa6-442a-a1db-21ec940c0f35-D as source
+2019-07-03 10:38:20 : TPC from SLAC to FNAL (d)
+2019-07-03 10:38:20 : running third-party transfer with delegate from SLAC to FNAL
+2019-07-03 10:38:20 : /usr/share/xrootd/xrootd-4.9.1/bin/xrdcp -d 3 -C adler32 --tpc delegate only root://fndcatemp2.fnal.gov:1094//data/xrootdfs/from-FNAL-7d3666da-4aa6-442a-a1db-21ec940c0f35-D root://fndcatemp1.fnal.gov:1094//pnfs/fs/usr/test/arossi/volatile/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D
+2019-07-03 10:38:21 : third-party transfer with delegate from SLAC to FNAL succeeded
+2019-07-03 10:38:21 : DOWNLOAD from FNAL
+2019-07-03 10:38:21 : running data download from FNAL
+2019-07-03 10:38:21 : /usr/share/xrootd/xrootd-4.9.1/bin/xrdcp -d 3 -C adler32 root://fndcatemp1.fnal.gov:1094//pnfs/fs/usr/test/arossi/volatile/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D /home/arossi/Desktop/from-FNAL-7d3666da-4aa6-442a-a1db-21ec940c0f35-D
+2019-07-03 10:38:21 : data download from FNAL succeeded
+2019-07-03 10:38:21 : running clean-up on root://fndcatemp2.fnal.gov:1094//data/xrootdfs/from-FNAL-7d3666da-4aa6-442a-a1db-21ec940c0f35-D
+2019-07-03 10:38:21 : /usr/share/xrootd/xrootd-4.9.1/bin/xrdfs fndcatemp2.fnal.gov:1094 rm //data/xrootdfs/from-FNAL-7d3666da-4aa6-442a-a1db-21ec940c0f35-D
+2019-07-03 10:38:21 : clean-up on root://fndcatemp2.fnal.gov:1094//data/xrootdfs/from-FNAL-7d3666da-4aa6-442a-a1db-21ec940c0f35-D succeeded
+2019-07-03 10:38:21 : running clean-up on root://fndcatemp1.fnal.gov:1094//pnfs/fs/usr/test/arossi/volatile/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D
+2019-07-03 10:38:21 : /usr/share/xrootd/xrootd-4.9.1/bin/xrdfs fndcatemp1.fnal.gov:1094 rm //pnfs/fs/usr/test/arossi/volatile/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D
+2019-07-03 10:38:22 : clean-up on root://fndcatemp1.fnal.gov:1094//pnfs/fs/usr/test/arossi/volatile/from-SLAC-7d3666da-4aa6-442a-a1db-21ec940c0f35-D succeeded
+2019-07-03 10:38:22 : removing local /home/arossi/Desktop/from-FNAL-7d3666da-4aa6-442a-a1db-21ec940c0f35-D
+2019-07-03 10:38:22 : running clean-up on root://fndcatemp1.fnal.gov:1094//pnfs/fs/usr/test/arossi/volatile/arossi-test-7d3666da-4aa6-442a-a1db-21ec940c0f35
+2019-07-03 10:38:22 : /usr/share/xrootd/xrootd-4.9.1/bin/xrdfs fndcatemp1.fnal.gov:1094 rm //pnfs/fs/usr/test/arossi/volatile/arossi-test-7d3666da-4aa6-442a-a1db-21ec940c0f35
+2019-07-03 10:38:22 : clean-up on root://fndcatemp1.fnal.gov:1094//pnfs/fs/usr/test/arossi/volatile/arossi-test-7d3666da-4aa6-442a-a1db-21ec940c0f35 succeeded
+2019-07-03 10:38:22 : Worker 2, SUCCESS for round-trip-2: FNAL-round-trip
+2019-07-03 10:38:22 : wait_for_completion, counter 2, end_value 2
+2019-07-03 10:38:22 : Attempting teardown ...
+2019-07-03 10:38:22 : Worker 3, RUNNING tear-down-1: SLAC-remove
+2019-07-03 10:38:22 : Waiting for workers to exit ...
+2019-07-03 10:38:22 : running data removal from SLAC
+2019-07-03 10:38:22 : /usr/share/xrootd/xrootd-4.9.1/bin/xrdfs fndcatemp2.fnal.gov:1094 rm //data/xrootdfs/arossi-test-7d3666da-4aa6-442a-a1db-21ec940c0f35
+2019-07-03 10:38:22 : data removal from SLAC succeeded
+2019-07-03 10:38:22 : Worker 3, SUCCESS for tear-down-1: SLAC-remove
+2019-07-03 10:38:22 : Workers have all exited; doing postprocess.
+2019-07-03 10:38:22 : Compiling smoke report ...
+2019-07-03 10:38:22 : json file ready at /home/arossi/Work/fnal/dCache/xrootd-tpc-utils/test/out/local.json
+2019-07-03 10:38:22 : json file ready at ../conf/local-config.json
+2019-07-03 10:38:22 : file ready at /home/arossi/Work/fnal/dCache/xrootd-tpc-utils/test/out/local-summary.txt

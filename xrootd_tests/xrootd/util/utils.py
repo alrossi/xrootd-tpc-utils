@@ -332,8 +332,8 @@ def get_dict_value(keys, dictionary):
         d = v
     return v
 
-def get_version(xrd_home):
-    p = subprocess.Popen("%s/bin/xrdcp --version"%xrd_home,
+def get_version(xrd_cp):
+    p = subprocess.Popen("%s --version"%xrd_cp,
                          stdout=subprocess.PIPE,
                          stderr=subprocess.PIPE,
                          shell=True)
@@ -350,23 +350,98 @@ def get_version(xrd_home):
 
 def validate_configuration(config):
     xrd_home = get_dict_value(['xrootd-settings', 'home'], config)
-    if not (os.path.isfile("%s/bin/xrdcp"%xrd_home)):
-        print_error("could not find executable %s/bin/xrdcp"%xrd_home)
-        return 12
 
-    if not (os.path.isfile("%s/bin/xrdfs"%xrd_home)):
-        print_error("could not find executable %s/bin/xrdfs"%xrd_home)
-        return 13
+    if not xrd_home:
+        config['xrootd-settings']['xrdcp'] = 'xrdcp'
+        config['xrootd-settings']['xrdfs'] = 'xrdfs'
+    else:
+        if not (os.path.isfile("%s/bin/xrdcp"%xrd_home)):
+            print_error("could not find executable %s/bin/xrdcp"%xrd_home)
+            return 12
+        config['xrootd-settings']['xrdcp'] = "%s/bin/xrdcp"%xrd_home
+
+        if not (os.path.isfile("%s/bin/xrdfs"%xrd_home)):
+            print_error("could not find executable %s/bin/xrdfs"%xrd_home)
+            return 13
+        config['xrootd-settings']['xrdfs'] = "%s/bin/xrdfs"%xrd_home
 
     proxy_exec = get_dict_value(['gsi-settings', 'proxy-init-exec'], config)
-    if not (find_executable(proxy_exec)):
+    if proxy_exec and not (find_executable(proxy_exec)):
         print_error("could not find executable %s"%proxy_exec)
         return 14
 
     data_gen_exec = get_dict_value(['local-data-file', 'generator-exec'], config)
-    if not (find_executable(data_gen_exec)):
+    if data_gen_exec and not (find_executable(data_gen_exec)):
         print_error("could not find executable %s/"%data_gen_exec)
         return 15
+
+    return 0
+
+def validate_proxy(gsi_settings):
+    if get_dict_value(["generate-proxy"], gsi_settings):
+        rc = execute_command("%s %s"%(get_dict_value(["proxy-init-exec"], gsi_settings), 
+                                      get_dict_value(["proxy-init-args"], gsi_settings)))
+        if rc :
+            print_error("Failed to create proxy")
+            return 16
+
+    proxy = get_dict_value(["x509-user-proxy"], gsi_settings)
+
+    if not (os.path.isfile(proxy)):
+        print_error("No user proxy found at '%s'"%proxy)
+        return 17
+
+    proxy_info = get_dict_value(['proxy-info-exec'], gsi_settings)
+        
+    if not proxy_info:
+        print_message("proxy info executable undefined, skipping proxy verification")
+        return 0
+        
+    '''
+        We skip verifying this as executable path as it probably is installed and
+        available to the shell on the $PATH.
+           
+        It is assumed this will be either grid-proxy-init or voms-proxy-init;
+        this also means we rely on the output to give us a line with 'timeleft:'.
+    '''
+    cmd = "%s %s -file %s"%(proxy_info, get_dict_value(["proxy-info-args"], gsi_settings), proxy)
+
+    p = subprocess.Popen(cmd, 
+                         stdout=subprocess.PIPE,
+                         stderr=subprocess.PIPE,
+                         shell=True)
+    output, errors = p.communicate()
+      
+    if p.returncode:
+        print_error("Command \"%s\" failed: rc=%d, error=%s"%(cmd,
+                                                              p.returncode, 
+                                                              errors.replace('\n',' ')))
+        return 19
+
+    '''
+        parse output for last timeleft line, e.g. "timeleft  : 12:23:43"
+    ''' 
+    timeleft = ""
+    lines = output.split('\n')
+    for line in lines:
+	print line
+        if "timeleft" in line:
+            timeleft = line
+
+    colons = timeleft.split(':')
+    if len(colons) != 4:
+        print_error("error parsing timeleft on proxy: %s"%timeleft)
+        return 20
+
+    secs = 0
+    d = 3600
+    for i in range(1, 4):
+        secs += d * int(colons[i])
+        d = d/60
+
+    if secs < 300:
+        print_error("insufficient time left on proxy: %s seconds"%secs)
+        return 21
 
     return 0
 
@@ -430,6 +505,10 @@ def prepare_environment(config):
         os.environ["X509_CERT_DIR"]     = gsi_settings['x509-cert-dir']
         os.environ["X509_USER_PROXY"]   = gsi_settings['x509-user-proxy']
 
+        rc = validate_proxy(gsi_settings)
+        if rc:
+            return rc
+
         home = get_dict_value(['home'], xrootd_settings)
         lib = get_dict_value(['lib'], xrootd_settings)
         
@@ -439,19 +518,12 @@ def prepare_environment(config):
             os.environ["LD_LIBRARY_PATH"]   = "%s/%s:%s"%(home, lib, 
                                                           os.environ["LD_LIBRARY_PATH"])
 
-        if (gsi_settings["generate-proxy"]):
-            rc = execute_command("%s %s"%(get_dict_value(["proxy-init-exec"],gsi_settings), 
-                                          get_dict_value(["proxy-init-args"],gsi_settings)))
-            if rc :
-                print_error("Failed to create proxy")
-                return 16
-
         return 0
     except Exception as e:
         print_error("Failed to set os environment: %s"%create_error_text(e))
         if (debug):
             traceback.print_exc()
-        return 17
+        return 22
 
 ##  ------------------------------------------------------------------------------------
  #  Exec

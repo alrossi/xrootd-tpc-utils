@@ -102,6 +102,8 @@ class Task(object):
         self.log_file_name = id
         self.config = config
         self.xrd_home = get_dict_value(['xrootd-settings', 'home'], config)
+        self.xrd_cp = get_dict_value(['xrootd-settings', 'xrdcp'], config)
+        self.xrd_fs = get_dict_value(['xrootd-settings', 'xrdfs'], config)
         self.errors = []
         self.capture_streams = False
         self.timestamp = get_dict_value(['run-timestamp'], config)
@@ -204,8 +206,8 @@ class Task(object):
     
     def _get_remove_command(self, url, file_name):
         scheme, loc, path, query, frag = urlsplit(url)
-        return "%s/bin/xrdfs %s rm %s"%(self.xrd_home, loc, 
-                                        os.path.join(path, file_name))
+        return "%s %s rm %s"%(self.xrd_fs, loc, 
+                              os.path.join(path, file_name))
 
     def _kill_process(self, p):
         p.kill()
@@ -296,10 +298,10 @@ class XrdUploadFile(Task):
         return self._do_timedTask(command, timeout, description)
 
     def _get_copy_command(self):
-        return "%s/bin/xrdcp %s %s %s"%(self.xrd_home, 
-                                        self.args, 
-                                        self.urls.get_data_path(),
-                                        self.urls.get_upload_url())
+        return "%s %s %s %s"%(self.xrd_cp, 
+                              self.args, 
+                              self.urls.get_data_path(),
+                              self.urls.get_upload_url())
 
 class XrdDownloadFile(Task):
     def __init__(self, id, urls, ret, delegate, config):   
@@ -329,10 +331,10 @@ class XrdDownloadFile(Task):
         return self._do_timedTask(command, timeout, description)
 
     def _get_copy_command(self):
-        return "%s/bin/xrdcp %s %s %s"%(self.xrd_home, 
-                                        self.args, 
-                                        self.source_url,
-                                        self.urls.get_download_path(self.delegate))
+        return "%s %s %s %s"%(self.xrd_cp, 
+                              self.args, 
+                              self.source_url,
+                              self.urls.get_download_path(self.delegate))
 
 class XrdThirdPartyTransfer(Task):
     def __init__(self, id, 
@@ -391,11 +393,11 @@ class XrdThirdPartyTransfer(Task):
         else:
             tpc = "--tpc only"
 
-        return "%s/bin/xrdcp %s %s %s %s"%(self.xrd_home, 
-                                           self.args,
-                                           tpc, 
-                                           self.src_url, 
-                                           self.dst_url)
+        return "%s %s %s %s %s"%(self.xrd_cp, 
+                                 self.args,
+                                 tpc, 
+                                 self.src_url, 
+                                 self.dst_url)
 
 class XrdRemoveFile(Task):
     def __init__(self, id, endpoint, file, config):

@@ -96,7 +96,7 @@ from xrootd.test.fullmesh import FullMeshTest
 from xrootd.test.smoke import SmokeTest
 
 def print_header():
-    with open("runtests.py") as sourcefile:
+    with open("xrootd_tests") as sourcefile:
         print ""
         for l in range (0, 91):
             line = sourcefile.readline()

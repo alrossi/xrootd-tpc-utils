@@ -1,0 +1,293 @@
+XROOTD FULL MESH TEST SUMMARY
+2019-07-02 20:07:16 GMT
+
+Client: otfrid.fnal.gov
+XrootD version: v4.9.1
+
+Tests per viable endpoint: 30
+
+-------------------------------TESTED ENDPOINTS---------------------------------
+
+CERN-TRUNK               DPM        tests run:   30/30   
+                    total:  success 28   failure  2   ( 93.33%)
+                   as src:  success 13   failure  2   ( 86.00%)
+                   as dst:  success 15   failure  0   (100.00%)
+
+
+UKI-LANC                 DPM        tests run:   30/30   
+                    total:  success 28   failure  2   ( 93.33%)
+                   as src:  success 13   failure  2   ( 86.00%)
+                   as dst:  success 15   failure  0   (100.00%)
+
+
+UKI-MAN2                 DPM        tests run:   30/30   
+                    total:  success 28   failure  2   ( 93.33%)
+                   as src:  success 13   failure  2   ( 86.00%)
+                   as dst:  success 15   failure  0   (100.00%)
+
+
+PRAGUE                   DPM        tests run:   30/30   
+                    total:  success 27   failure  3   ( 90.00%)
+                   as src:  success 12   failure  3   ( 80.00%)
+                   as dst:  success 15   failure  0   (100.00%)
+
+
+UKI-BRUNEL               DPM        tests run:   30/30   
+                    total:  success 27   failure  3   ( 90.00%)
+                   as src:  success 13   failure  2   ( 86.00%)
+                   as dst:  success 14   failure  1   ( 93.00%)
+
+
+UKI-MAN1                 DPM        tests run:   30/30   
+                    total:  success 27   failure  3   ( 90.00%)
+                   as src:  success 12   failure  3   ( 80.00%)
+                   as dst:  success 15   failure  0   (100.00%)
+
+
+CERN-RC                  DPM        tests run:   30/30   
+                    total:  success 26   failure  4   ( 86.67%)
+                   as src:  success 13   failure  2   ( 86.00%)
+                   as dst:  success 13   failure  2   ( 86.00%)
+
+
+OU                       XrootD     tests run:   30/30   
+                    total:  success 26   failure  4   ( 86.67%)
+                   as src:  success 11   failure  4   ( 73.00%)
+                   as dst:  success 15   failure  0   (100.00%)
+
+
+SLAC                     XrootD     tests run:   30/30   
+                    total:  success 26   failure  4   ( 86.67%)
+                   as src:  success 11   failure  4   ( 73.00%)
+                   as dst:  success 15   failure  0   (100.00%)
+
+
+FNAL                     dCache     tests run:   30/30   
+                    total:  success 25   failure  5   ( 83.33%)
+                   as src:  success 10   failure  5   ( 66.00%)
+                   as dst:  success 15   failure  0   (100.00%)
+
+
+DESY-PROM                dCache     tests run:   30/30   
+                    total:  success 21   failure  9   ( 70.00%)
+                   as src:  success 10   failure  5   ( 66.00%)
+                   as dst:  success 11   failure  4   ( 73.00%)
+
+
+TRIUMF                   dCache     tests run:   30/30   
+                    total:  success 21   failure  9   ( 70.00%)
+                   as src:  success 10   failure  5   ( 66.00%)
+                   as dst:  success 11   failure  4   ( 73.00%)
+
+
+UKI-GLASGOW              DPM        tests run:   30/30   
+                    total:  success 21   failure  9   ( 70.00%)
+                   as src:  success 13   failure  2   ( 86.00%)
+                   as dst:  success  8   failure  7   ( 53.00%)
+
+
+CERN-EOS                 EOS        tests run:   30/30   
+                    total:  success 17   failure 13   ( 56.67%)
+                   as src:  success 11   failure  4   ( 73.00%)
+                   as dst:  success  6   failure  9   ( 40.00%)
+
+
+BRUSSELS                 dCache     tests run:   30/30   
+                    total:  success  9   failure 21   ( 30.00%)
+                   as src:  success  9   failure  6   ( 60.00%)
+                   as dst:  success  0   failure 15   (  0.00%)
+
+
+RAL-LCG2                 Echo       tests run:   30/30   
+                    total:  success  9   failure 21   ( 30.00%)
+                   as src:  success  9   failure  6   ( 60.00%)
+                   as dst:  success  0   failure 15   (  0.00%)
+
+
+------------------------COULD NOT UPLOAD SETUP DATA TO--------------------------
+
+BEIJING-LCG2
+BNL
+CALTECH
+UNI-BONN
+
+--------------------------------ERROR DETAILS-----------------------------------
+
+[1] CERN-TRUNK
+	AS SOURCE
+		with dst RAL-LCG2 (tpc-test-d-14), last error was: 000538 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with dst BRUSSELS (tpc-test-d-181), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+
+[2] UKI-LANC
+	AS SOURCE
+		with dst RAL-LCG2 (tpc-test-d-12), last error was: 000556 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with dst BRUSSELS (tpc-test-d-165), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+
+[3] UKI-MAN2
+	AS SOURCE
+		with dst RAL-LCG2 (tpc-test-d-10), last error was: 000538 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with dst BRUSSELS (tpc-test-d-147), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+
+[4] PRAGUE
+	AS SOURCE
+		with dst RAL-LCG2 (tpc-test-d-2), last error was: 000538 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with dst CERN-EOS (tpc-test-d-47), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-PRAGUE-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with dst BRUSSELS (tpc-test-d-55), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+
+[5] UKI-BRUNEL
+	AS SOURCE
+		with dst BRUSSELS (tpc-test-d-105), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with dst RAL-LCG2 (tpc-test-d-6), last error was: 000538 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+	AS DESTINATION
+		with src BRUSSELS (tpc-test-d-106), last error was: 000418 : Run: [ERROR] Server responded with an error: [3006] Unable to create /dpm/brunel.ac.uk/home/dteam/wlcg-tpc/from-BRUSSELS-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; File exists
+
+[6] UKI-MAN1
+	AS SOURCE
+		with dst CERN-EOS (tpc-test-d-119), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-UKI-MAN1-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with dst RAL-LCG2 (tpc-test-d-8), last error was: 000538 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with dst BRUSSELS (tpc-test-d-127), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+
+[7] CERN-RC
+	AS SOURCE
+		with dst RAL-LCG2 (tpc-test-d-16), last error was: 000556 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with dst BRUSSELS (tpc-test-d-195), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+	AS DESTINATION
+		with src RAL-LCG2 (tpc-test-d-15), last error was: 000909 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] tpc authorization expired
+		with src BRUSSELS (tpc-test-d-196), last error was: 000418 : Run: [ERROR] Server responded with an error: [3006] Unable to create /dpm/cern.ch/home/dteam/from-BRUSSELS-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; File exists
+
+[8] OU
+	AS SOURCE
+		with dst CERN-EOS (tpc-test-d-214), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-OU-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with dst BRUSSELS (tpc-test-d-231), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with dst RAL-LCG2 (tpc-test-d-24), last error was: 000471 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with dst UKI-GLASGOW (tpc-test-d-78), last error was: 000646 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+
+[9] SLAC
+	AS SOURCE
+		with dst CERN-EOS (tpc-test-d-212), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-SLAC-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with dst UKI-GLASGOW (tpc-test-d-76), last error was: 000706 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with dst RAL-LCG2 (tpc-test-d-22), last error was: 000621 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3011] No servers have read access to the file
+		with dst BRUSSELS (tpc-test-d-225), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+
+[10] FNAL
+	AS SOURCE
+		with dst CERN-EOS (tpc-test-d-216), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-FNAL-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with dst BRUSSELS (tpc-test-d-235), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with dst UKI-GLASGOW (tpc-test-d-80), last error was: 000646 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with dst RAL-LCG2 (tpc-test-d-26), last error was: 000453 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with dst DESY-PROM (tpc-test-d-206), last error was: 000675 : Run: [ERROR] Server responded with an error: [4003] No response from server after 2 seconds.
+
+[11] DESY-PROM
+	AS SOURCE
+		with dst RAL-LCG2 (tpc-test-d-18), last error was: 000471 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with dst CERN-EOS (tpc-test-d-199), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-DESY-PROM-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with dst BRUSSELS (tpc-test-d-207), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with dst TRIUMF (tpc-test-d-209), last error was: 000618 : Run: [ERROR] Server responded with an error: [4003] login failed
+		with dst UKI-GLASGOW (tpc-test-d-72), last error was: 000646 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+	AS DESTINATION
+		with src RAL-LCG2 (tpc-test-d-17), last error was: 000104 : [2019-07-02 15:04:06.889994 -0500][Debug  ][ExDbgMsg          ] [fal-pygrid-30.lancs.ac.uk:1094] Calling MsgHandler: 0x13c4a90 (message: kXR_stat (path: /dpm/lancs.ac.uk/home/dteam/from-DESY-PROM-37b977f3-4807-4cbe-b559-51f2114bd6c1-D, flags: none) ) with status: [ERROR] Error response: No such file or directory.
+		with src TRIUMF (tpc-test-d-210), last error was: 000671 : Run: [ERROR] Server responded with an error: [4003] No response from server after 2 seconds.
+		with src FNAL (tpc-test-d-206), last error was: 000675 : Run: [ERROR] Server responded with an error: [4003] No response from server after 2 seconds.
+		with src CERN-EOS (tpc-test-d-200), last error was: 000698 : Run: [ERROR] Server responded with an error: [4003] Invalid request; user not authenticated
+
+[12] TRIUMF
+	AS SOURCE
+		with dst DESY-PROM (tpc-test-d-210), last error was: 000671 : Run: [ERROR] Server responded with an error: [4003] No response from server after 2 seconds.
+		with dst UKI-GLASGOW (tpc-test-d-84), last error was: 000642 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with dst CERN-EOS (tpc-test-d-220), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-TRIUMF-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with dst BRUSSELS (tpc-test-d-240), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with dst RAL-LCG2 (tpc-test-d-30), last error was: 000467 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+	AS DESTINATION
+		with src BRUSSELS (tpc-test-d-239), last error was: 000632 : Run: [ERROR] Server responded with an error: [4003] login failed
+		with src CERN-EOS (tpc-test-d-219), last error was: 000696 : Run: [ERROR] Server responded with an error: [4003] Authentication of /eos/opstest/tpc/xrootd-test-data-37b977f3-4807-4cbe-b559-51f2114bd6c1 on lxfsre05a04.cern.ch:1095, channel 13fce4cb, stream 121, is required; not handled.
+		with src RAL-LCG2 (tpc-test-d-29), last error was: 000619 : Run: [ERROR] Server responded with an error: [4003] 
+		with src DESY-PROM (tpc-test-d-209), last error was: 000618 : Run: [ERROR] Server responded with an error: [4003] login failed
+
+[13] UKI-GLASGOW
+	AS SOURCE
+		with dst RAL-LCG2 (tpc-test-d-4), last error was: 000540 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with dst BRUSSELS (tpc-test-d-81), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+	AS DESTINATION
+		with src SLAC (tpc-test-d-76), last error was: 000706 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with src RAL-LCG2 (tpc-test-d-3), last error was: 000647 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with src FNAL (tpc-test-d-80), last error was: 000646 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with src BRUSSELS (tpc-test-d-82), last error was: 000420 : Run: [ERROR] Server responded with an error: [3006] Unable to create /dpm/gla.scotgrid.ac.uk/home/dteam/from-BRUSSELS-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; File exists
+		with src TRIUMF (tpc-test-d-84), last error was: 000642 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with src DESY-PROM (tpc-test-d-72), last error was: 000646 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with src OU (tpc-test-d-78), last error was: 000646 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+
+[14] CERN-EOS
+	AS SOURCE
+		with dst BRUSSELS (tpc-test-d-217), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with dst TRIUMF (tpc-test-d-219), last error was: 000696 : Run: [ERROR] Server responded with an error: [4003] Authentication of /eos/opstest/tpc/xrootd-test-data-37b977f3-4807-4cbe-b559-51f2114bd6c1 on lxfsre05a04.cern.ch:1095, channel 13fce4cb, stream 121, is required; not handled.
+		with dst RAL-LCG2 (tpc-test-d-20), last error was: 000794 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Unable to open - tpc key not valid /eos/opstest/tpc/xrootd-test-data-37b977f3-4807-4cbe-b559-51f2114bd6c1; operation not permitted
+		with dst DESY-PROM (tpc-test-d-200), last error was: 000698 : Run: [ERROR] Server responded with an error: [4003] Invalid request; user not authenticated
+	AS DESTINATION
+		with src RAL-LCG2 (tpc-test-d-19), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-RAL-LCG2-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with src SLAC (tpc-test-d-212), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-SLAC-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with src FNAL (tpc-test-d-216), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-FNAL-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with src OU (tpc-test-d-214), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-OU-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with src BRUSSELS (tpc-test-d-218), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-BRUSSELS-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with src UKI-MAN1 (tpc-test-d-119), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-UKI-MAN1-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with src DESY-PROM (tpc-test-d-199), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-DESY-PROM-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with src PRAGUE (tpc-test-d-47), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-PRAGUE-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with src TRIUMF (tpc-test-d-220), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-TRIUMF-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+
+[15] BRUSSELS
+	AS SOURCE
+		with dst TRIUMF (tpc-test-d-239), last error was: 000632 : Run: [ERROR] Server responded with an error: [4003] login failed
+		with dst CERN-EOS (tpc-test-d-218), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-BRUSSELS-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with dst UKI-GLASGOW (tpc-test-d-82), last error was: 000420 : Run: [ERROR] Server responded with an error: [3006] Unable to create /dpm/gla.scotgrid.ac.uk/home/dteam/from-BRUSSELS-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; File exists
+		with dst RAL-LCG2 (tpc-test-d-28), last error was: 000467 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with dst UKI-BRUNEL (tpc-test-d-106), last error was: 000418 : Run: [ERROR] Server responded with an error: [3006] Unable to create /dpm/brunel.ac.uk/home/dteam/wlcg-tpc/from-BRUSSELS-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; File exists
+		with dst CERN-RC (tpc-test-d-196), last error was: 000418 : Run: [ERROR] Server responded with an error: [3006] Unable to create /dpm/cern.ch/home/dteam/from-BRUSSELS-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; File exists
+	AS DESTINATION
+		with src UKI-MAN2 (tpc-test-d-147), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with src CERN-EOS (tpc-test-d-217), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with src OU (tpc-test-d-231), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with src FNAL (tpc-test-d-235), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with src UKI-BRUNEL (tpc-test-d-105), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with src CERN-RC (tpc-test-d-195), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with src RAL-LCG2 (tpc-test-d-27), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with src DESY-PROM (tpc-test-d-207), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with src UKI-LANC (tpc-test-d-165), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with src SLAC (tpc-test-d-225), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with src TRIUMF (tpc-test-d-240), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with src CERN-TRUNK (tpc-test-d-181), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with src UKI-MAN1 (tpc-test-d-127), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with src UKI-GLASGOW (tpc-test-d-81), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with src PRAGUE (tpc-test-d-55), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+
+[16] RAL-LCG2
+	AS SOURCE
+		with dst DESY-PROM (tpc-test-d-17), last error was: 000556 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with dst CERN-RC (tpc-test-d-15), last error was: 000909 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] tpc authorization expired
+		with dst CERN-EOS (tpc-test-d-19), last error was: 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-RAL-LCG2-37b977f3-4807-4cbe-b559-51f2114bd6c1-D; No such file or directory
+		with dst UKI-GLASGOW (tpc-test-d-3), last error was: 000647 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with dst BRUSSELS (tpc-test-d-27), last error was: 000000 : [ERROR] Server responded with an error: [3011] No such file
+		with dst TRIUMF (tpc-test-d-29), last error was: 000619 : Run: [ERROR] Server responded with an error: [4003] 
+	AS DESTINATION
+		with src CERN-RC (tpc-test-d-16), last error was: 000556 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with src CERN-TRUNK (tpc-test-d-14), last error was: 000538 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with src UKI-LANC (tpc-test-d-12), last error was: 000556 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with src UKI-MAN2 (tpc-test-d-10), last error was: 000538 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with src DESY-PROM (tpc-test-d-18), last error was: 000471 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with src UKI-GLASGOW (tpc-test-d-4), last error was: 000540 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with src UKI-BRUNEL (tpc-test-d-6), last error was: 000538 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with src PRAGUE (tpc-test-d-2), last error was: 000538 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with src UKI-MAN1 (tpc-test-d-8), last error was: 000538 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Permission denied
+		with src SLAC (tpc-test-d-22), last error was: 000621 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3011] No servers have read access to the file
+		with src CERN-EOS (tpc-test-d-20), last error was: 000794 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3010] Unable to open - tpc key not valid /eos/opstest/tpc/xrootd-test-data-37b977f3-4807-4cbe-b559-51f2114bd6c1; operation not permitted
+		with src FNAL (tpc-test-d-26), last error was: 000453 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with src OU (tpc-test-d-24), last error was: 000471 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with src BRUSSELS (tpc-test-d-28), last error was: 000467 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+		with src TRIUMF (tpc-test-d-30), last error was: 000467 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+
+[17] BEIJING-LCG2	DPM
+	Last error on set-up: 000000 : [ERROR] Server responded with an error: [3011] No such file or directory
+[18] BNL	dCache
+	Last error on set-up: 000000 : [ERROR] Server responded with an error: [3010] Unable to remove /pnfs/usatlas.bnl.gov/users/hiroito/testtpc/xrootd-test-data-37b977f3-4807-4cbe-b559-51f2114bd6c1; permission denied
+[19] CALTECH	HDFS
+	Last error on set-up: 
+[20] UNI-BONN	CephFS
+	Last error on set-up: 000000 : [ERROR] Server responded with an error: [3010] Unable to remove /cephfs/grid/atlas/user/scratch/xrootd-test-data-37b977f3-4807-4cbe-b559-51f2114bd6c1; permission denied

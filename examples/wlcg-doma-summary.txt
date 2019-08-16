@@ -1,0 +1,66 @@
+XROOTD SMOKE TEST SUMMARY
+2019-07-02 19:48:13 GMT
+
+Client: otfrid.fnal.gov
+XrootD version: v4.9.1
+
+Reference server: SLAC
+
+Total number of round-trip tests: 20
+
+--------------------------------SOUND ENDPOINTS---------------------------------
+
+SCORE   ENDPT               TYPE        UP     S_d   S_nd    D_d   D_nd   DOWN            
+--------------------------------------------------------------------------------
+1       CERN-RC             DPM          P      P      -      P      -      P      4/4    
+1       CERN-TRUNK          DPM          P      P      -      P      -      P      4/4    
+1       DESY-PROM           dCache       P      P      -      P      -      P      4/4    
+1       FNAL                dCache       P      P      -      P      -      P      4/4    
+1       OU                  XrootD       P      P      -      P      -      P      4/4    
+1       PRAGUE              DPM          P      P      -      P      -      P      4/4    
+1       SLAC                XrootD       -      P      -      -      -      P      2/2    
+1       TRIUMF              dCache       P      P      -      P      -      P      4/4    
+1       UKI-BRUNEL          DPM          P      P      -      P      -      P      4/4    
+1       UKI-LANC            DPM          P      P      -      P      -      P      4/4    
+1       UKI-MAN1            DPM          P      P      -      P      -      P      4/4    
+1       UKI-MAN2            DPM          P      P      -      P      -      P      4/4    
+
+-----------------------------PROBLEMATIC ENDPOINTS------------------------------
+
+SCORE   ENDPT               TYPE        UP     S_d   S_nd    D_d   D_nd   DOWN            
+--------------------------------------------------------------------------------
+0       BRUSSELS            dCache       P      P      -      F      -      P      3/4    
+0       CALTECH             HDFS         P      P      -      F      -      P      3/4    
+0       CERN-EOS            EOS          P      P      -      F      -      P      3/4    
+0       RAL-LCG2            Echo         P      P      -      F      -      P      3/4    
+0       UKI-GLASGOW         DPM          P      P      -      F      -      P      3/4    
+0       BEIJING-LCG2        DPM          F      -      -      -      -      -      0/4    
+0       BNL                 dCache       F      -      -      -      -      -      0/4    
+0       UNI-BONN            CephFS       F      -      -      -      -      -      0/4    
+
+--------------------------------ERROR DETAILS-----------------------------------
+
+[1] BRUSSELS
+		TPC_DST_D (round-trip-18-tpc-dst-d): 000000 : [ERROR] Server responded with an error: [3011] No such file
+
+[2] CALTECH
+		TPC_DST_D (round-trip-20-tpc-dst-d): 000000 : [ERROR] Server responded with an error: [3011] No servers are available to write the file.
+
+[3] CERN-EOS
+		TPC_DST_D (round-trip-12-tpc-dst-d): 000000 : [ERROR] Server responded with an error: [3011] Unable to remove /eos/opstest/tpc/from-SLAC-7d95cc73-2391-458e-b846-b3447041fc29-D; No such file or directory
+
+[4] RAL-LCG2
+		TPC_DST_D (round-trip-1-tpc-dst-d): 000549 : Run: [ERROR] Server responded with an error: [3005] [ERROR] Server responded with an error: [3011] No servers have read access to the file
+
+[5] UKI-GLASGOW
+		TPC_DST_D (round-trip-3-tpc-dst-d): 000698 : Run: [ERROR] Server responded with an error: [3005] [FATAL] Auth failed
+
+[6] BEIJING-LCG2
+		UPLOAD (round-trip-17-upload): 000219 : Run: [ERROR] Server responded with an error: [3010] Opening relative path 'dpm/ihep.ac.cn//home/dteam/xrootd-test-data-7d95cc73-2391-458e-b846-b3447041fc29?oss.asize=1048576' is disallowed.
+
+[7] BNL
+		UPLOAD (round-trip-11-upload): 000219 : Run: [ERROR] Server responded with an error: [3010] Unable to create /pnfs/usatlas.bnl.gov/users/hiroito/testtpc/xrootd-test-data-7d95cc73-2391-458e-b846-b3447041fc29; permission denied
+
+[8] UNI-BONN
+		UPLOAD (round-trip-15-upload): 000292 : Run: [ERROR] Server responded with an error: [3010] Unable to create /cephfs/grid/atlas/user/scratch/xrootd-test-data-7d95cc73-2391-458e-b846-b3447041fc29; permission denied
+
