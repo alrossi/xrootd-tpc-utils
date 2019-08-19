@@ -72,20 +72,21 @@ Description: # xrootd-tpc-utils
         
             (a) "Full Mesh":   A data file is uploaded to each endpoint, and
                                then transferred both ways between endpoint pairs.
+        
             (b) "Smoke":       An endpoint is selected as reference; for all other
                                endpoints, a file is uploaded, transferred to the
                                reference endpoint, transferred back, and then
                                downloaded from the endpoint.
                                
-        See also the info in the runtests module by doing:
+        See also the info in the xrootd_tests script by doing:
         
-                python runtests.py -i
+                python xrootd_tests -i
         
         -------------------------------------------------------------------------------
         
         Configuration and Output
         
-        The test suite requires a .json configuration file.  An examples is given
+        The test suite requires a .json configuration file.  Some examples are given
         in the conf directory.
         
         Most of the settings should be self-explanatory.  For the "test-phases",
@@ -100,20 +101,23 @@ Description: # xrootd-tpc-utils
         
         The output from each test suite run is in the form of another .json file
         which records the (extended) configuration instance, plus the metadata for
-        each task in the suite, including all out or err lines which appear to indicate
-        errors.   
+        each task in the suite, including all out or err lines which appear to 
+        indicate errors.   
         
         The summary file is a plain text condensation of the results with some
         basic statistical information (percentage of successes in the case of 
         the full mesh, number of successful hops in the smoke test), followed
         by a listing of the individual failures for each endpoint with the
-        last error reported for each.
+        last error reported for each.  See the examples directory for
+        example output.  The example.log file shows typical output from 
+        the script with the -d (debug) option.
         
         The summary file can be emailed using the local smtp server if it
         exists; the 'to' takes a list of recipient addresses.
         
         The configuration allows for automated generation of the x509 proxy
-        (see under "gsi-settings") and test data (see under "local-data-file")
+        (see under "gsi-settings", provided permissions for the script user
+        are correct) and test data (see under "local-data-file")
         using the unix/linux 'dd' command.
         
         Full-mesh output ranks the endpoints by their percentage of successes;
@@ -126,13 +130,18 @@ Description: # xrootd-tpc-utils
         
         -------------------------------------------------------------------------------
         
-        Two small bash scripts are provided for convenience.  These take the
-        command line options -f (for the config file) -d (debug) -i (info)
-        or -h (help); the -t option is suppressed.
-        
-                export TEST_HOME=<where your test installation is>
-        
         The python code was written for version 2.7.
+        
+        A local pip wheel dist is provided for local installation via:
+        
+                python -m pip install dist/xrootdtests-1.0-py2-none-any.whl
+        
+        Note that Python.org sites stopped supporting TLS version 1.0 and 1.1, which 
+        could cause issues if you try to update pip wheel on your platform.
+        
+        In this case, a suggested solution is to upgrade pip without using pip:
+        
+                curl https://bootstrap.pypa.io/get-pip.py | python
         
 Platform: UNKNOWN
 Classifier: Programming Language :: Python :: 2.7
