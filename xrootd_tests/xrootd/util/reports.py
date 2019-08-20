@@ -443,6 +443,11 @@ class Report(object):
         lines.append("Client: %s"%socket.gethostname())
         lines.append("XrootD version: %s"%get_dict_value(['xrootd-settings', 'version'], self.config))
         lines.append("")
+        cksum = get_dict_value(['xrootd-settings','cksum'], self.config)
+        if not cksum:
+            cksum = 'OFF'
+        lines.append("Checksum: %s"%cksum)
+        lines.append("")
         lines.append("Tests per viable endpoint: %s"%total)
         lines.append("")
         
@@ -501,6 +506,11 @@ class Report(object):
         lines.append("XrootD version: %s"%get_dict_value(['xrootd-settings', 'version'], self.config))
         lines.append("")
         lines.append("Reference server: %s"%get_dict_value(['reference-endpoint', 'id'], self.config))
+        lines.append("")
+        cksum = get_dict_value(['xrootd-settings','cksum'], self.config)
+        if not cksum:
+            cksum = 'OFF'
+        lines.append("Checksum: %s"%cksum)
         lines.append("")
         lines.append("Total number of round-trip tests: %s"%total)
         lines.append("")

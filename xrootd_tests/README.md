@@ -122,15 +122,30 @@ decrements it by 1.
 
 -------------------------------------------------------------------------------
 
+CREATING A DISTRIBUTION
+
 The python code was written for version 2.7.
 
-A local pip wheel dist is provided for local installation via:
+To create a distribution for standard installation, follow the instructions
+at:
 
-        python -m pip install dist/xrootdtests-1.0-py2-none-any.whl
+        https://packaging.python.org/tutorials/packaging-projects/
 
-Note that Python.org sites stopped supporting TLS version 1.0 and 1.1, which 
-could cause issues if you try to update pip wheel on your platform.
+for installing pip.  Note that Python.org sites stopped supporting 
+TLS version 1.0 and 1.1, which could cause issues if you try to update 
+pip wheel on your platform.
 
 In this case, a suggested solution is to upgrade pip without using pip:
 
         curl https://bootstrap.pypa.io/get-pip.py | python
+
+Once pip is on your machine, do:
+
+        cd xrootd_tests
+        python setup.py sdist bdist_wheel
+
+A local pip wheel dist is generated for local installation.  To 
+install, run:
+
+        python -m pip install dist/xrootdtests-1.0-py2-none-any.whl
+        
