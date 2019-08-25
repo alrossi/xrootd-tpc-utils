@@ -134,8 +134,10 @@ class Task(object):
         for url in remote:
             if not url:
                 continue
+           
             scheme, loc, path, query, frag = urlsplit(url)
-            command = "%s/bin/xrdfs %s rm %s"%(self.xrd_home, loc, path)
+            command = "%s %s rm %s"%(self.xrd_fs, loc, path)
+            
             rc = self._do_timedTask(command, timeout, "clean-up on %s"%url)
             if rc:
                 print_error("failed to remove %s. rc: %s"%(url, rc))
