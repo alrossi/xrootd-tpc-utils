@@ -175,7 +175,6 @@ class FullMeshTest(TestSuite):
     def _do_tpc_test(self, tpc_pairs):
         number_of_tasks = 0
         with_deleg = get_dict_value(['task-phases', 'tpc', 'with-delegation'], self.config)
-        without_deleg = get_dict_value(['task-phases', 'tpc', 'without-delegation'], self.config)
 
         self.wait_cond.acquire()
         self.report['counter'] = 0
@@ -187,7 +186,7 @@ class FullMeshTest(TestSuite):
                     t = create_tpc_test(number_of_tasks + 1, src, dst, True, self.config)
                     number_of_tasks += 1
                     self.queue.put(t)
-                if without_deleg:
+                else:
                     t = create_tpc_test(number_of_tasks + 1, src, dst, False, self.config)
                     number_of_tasks += 1
                     self.queue.put(t)

@@ -431,7 +431,6 @@ class XrdRoundTrip(Task):
         self.urls = WithRefUrls(endpoint, config)
         self.tpc = get_dict_value(['task-phases', 'tpc'], config)
         self.with_deleg = get_dict_value(['with-delegation'], self.tpc)
-        self.without_deleg = get_dict_value(['without-delegation'], self.tpc)
         self.tasks = []
         self.results = [-999, -999, -999, -999, -999, -999]
         self.is_ref = self.urls.is_same_endpoint()
@@ -502,8 +501,7 @@ class XrdRoundTrip(Task):
                            [to_delete[2], to_delete[3]], 
                            [to_delete[0]])
         
-        ## bidirectional
-        if self.without_deleg:
+        else:
             self._do_bi_directional(False, valid_rcs)
             '''
                 If the return copy was successful, use it as source;

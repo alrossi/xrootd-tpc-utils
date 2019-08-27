@@ -190,8 +190,7 @@
         "tpc": {
             "capture-streams": true, 
             "timeout-in-seconds": 120, 
-            "with-delegation": true, 
-            "without-delegation": false
+            "with-delegation": true
         }, 
         "upload": {
             "capture-streams": true, 
