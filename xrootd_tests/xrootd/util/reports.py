@@ -497,9 +497,7 @@ class Report(object):
         lines.append("")
         lines.append("XrootD version: %s"%get_dict_value(['xrootd-settings', 'version'], self.config))
         lines.append("")
-        endpoints = get_dict_value(['reference-endpoints'])
-        refendpoint = endpoints[0]
-        lines.append("Reference server: %s"%get_dict_value(['id'], refendpoint))
+        lines.append("Reference server: %s"%get_dict_value(['reference-endpoint', 'id'], self.config))
         lines.append("")
         lines.append("Credential delegation: %s"%("ON" if deleg else "OFF"))
         lines.append("")

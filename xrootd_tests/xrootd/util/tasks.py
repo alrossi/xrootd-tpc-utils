@@ -533,7 +533,7 @@ class XrdRoundTrip(Task):
                 self.results[2] = self._do_tpc_src(False, False)
                 valid_rcs.append(2)
         else:  
-            print_error("skipping tpc using %s as source"%self.endpt_id)
+            print_error("skipping tpc using %s as source"%self.urls.get_src_id())
 
         ## tpc dst
         '''

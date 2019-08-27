@@ -202,6 +202,7 @@ class TestSuite(object):
 
         '''
             choose first from the list, rotate the list
+            write it to the actual config file TODO
         '''
         ref_endpoints = get_dict_value(['reference-endpoints'], self.config)
         self.ref_endpoint = ref_endpoints.pop(0)
