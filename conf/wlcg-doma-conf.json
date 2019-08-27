@@ -157,13 +157,29 @@
         "name": "xrootd-test-data", 
         "parent": "/var/tmp"
     }, 
-    "reference-endpoint": {
+    "reference-endpoints": [
+    {
         "id": "SLAC", 
         "score": 0, 
         "type": "XrootD", 
         "url": "root://griddev03.slac.stanford.edu:2094//xrootd/atlas/tpctest", 
         "version": "4.9.1"
     }, 
+    {
+        "id": "CERN-TRUNK", 
+        "score": 4, 
+        "type": "DPM", 
+        "url": "root://dpmhead-trunk.cern.ch//dpm/cern.ch/home/dteam", 
+        "version": "1.11.0"
+    },
+    {
+        "id": "FNAL", 
+        "score": 4, 
+        "type": "dCache", 
+        "url": "root://stkendca06a.fnal.gov:1094//pnfs/fnal.gov/VOs/dteam", 
+        "version": "6.0.0-SNAPSHOT"
+    } 
+    ],
     "report": {
         "email-from": "xrootd-test@fnal.gov", 
         "email-to": [

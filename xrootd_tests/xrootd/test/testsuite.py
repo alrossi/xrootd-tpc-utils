@@ -200,8 +200,16 @@ class TestSuite(object):
         names = get_endpoint_names(self.endpoints)
         print_message("Using the following endpoints: %s"%names)
 
-        self.ref_endpoint = get_dict_value(['reference-endpoint'], self.config)
+        '''
+            choose first from the list, rotate the list
+        '''
+        ref_endpoints = get_dict_value(['reference-endpoints'], self.config)
+        self.ref_endpoint = ref_endpoints.pop(0)
+        ref_endpoints.append(self.ref_endpoint)
+        self.config['reference-endpoints'] = ref_endpoints
         self.ref_end_id = get_endpoint_name(self.ref_endpoint)
+
+        print_message("Using the following reference endpoint: %s"%self.ref_end_id)
 
         return 0
 
