@@ -210,7 +210,8 @@ class TestSuite(object):
         self.config['reference-endpoints'] = ref_endpoints
         self.config['reference-endpoint'] = self.ref_endpoint
         self.ref_end_id = get_endpoint_name(self.ref_endpoint)
-
+        print_json_to_file(self.config_file, self.config)
+        
         print_message("Using the following reference endpoint: %s"%self.ref_end_id)
 
         return 0

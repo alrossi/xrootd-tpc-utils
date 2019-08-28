@@ -131,6 +131,7 @@ class Task(object):
         return rc
 
     def _clean_up(self, timeout, remote, local):
+        prevlen = len(self.errors)
         for url in remote:
             if not url:
                 continue
@@ -139,8 +140,15 @@ class Task(object):
             command = "%s %s rm %s"%(self.xrd_fs, loc, path)
             
             rc = self._do_timedTask(command, timeout, "clean-up on %s"%url)
+            
+            currlen = len(self.errors)
+
             if rc:
                 print_error("failed to remove %s. rc: %s"%(url, rc))
+                if is_debug():
+                    print_error("%s", '\n'.join(map(str, self.errors[prevlen:currlen])))
+            
+            prevlen = currlen
 
         for path in local:
             if not path:
