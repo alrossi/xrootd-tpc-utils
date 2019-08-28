@@ -146,7 +146,7 @@ class Task(object):
             if rc:
                 print_error("failed to remove %s. rc: %s"%(url, rc))
                 if is_debug():
-                    print_error("%s", '\n'.join(map(str, self.errors[prevlen:currlen])))
+                    print_error("%s"%('\n'.join(map(str, self.errors[prevlen:currlen]))))
             
             prevlen = currlen
 
