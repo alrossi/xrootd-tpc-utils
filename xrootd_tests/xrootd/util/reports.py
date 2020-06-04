@@ -79,14 +79,7 @@ from time import strftime,gmtime
 from utils import *
 from tasks import Task
 
-'''
-CERN-TRUNK      DPM
-        success 6, failure 0, (100.00%),                
-        as src: success 3, failure 0, (100.00%),                
-        as dst: success 3, failure 0, (100.00%)
-'''
-
-SMOKE_FORMAT='{0:<8}{1:<20}{2:<10}{3:^7}{4:^7}{5:^7}{6:^7}{7:^7}{8:^7}{9:^10}'
+SMOKE_FORMAT='{0:<8}{1:<20}{2:<10}{3:^10}{4:^10}{5:^10}{6:^10}{7:^10}'
 MESH_FORMAT='{0:<25}{1:<10} tests run: {2:^10}\n{3:>25}:  success{4:^5} failure{5:^5} ({6:>7})\n{7:>25}:  success{8:^5} failure{9:^5} ({10:>7})\n{11:>25}:  success{12:^5} failure{13:^5} ({14:>7})\n'
 
 def compare_endpoints_by_score(summary1, summary2):
@@ -220,7 +213,7 @@ class FullMeshSummary(object):
             self.add_test_failure(role, src, tid, self.last_error)
 
 class SmokeSummary(object):
-    def __init__(self, id, with_deleg, without_deleg, is_ref):
+    def __init__(self, id, with_deleg, is_ref):
         self.name = id
         self.rc = []
         self.upload = "UNDF"
@@ -230,7 +223,6 @@ class SmokeSummary(object):
         self.tpc_dst_nd = "UNDF"
         self.download = "UNDF"
         self.with_deleg = with_deleg
-        self.without_deleg = without_deleg
         self.is_ref = is_ref
         self.score = 0
         self.errors = []
@@ -255,10 +247,8 @@ class SmokeSummary(object):
     def stats(self):
         out = []
         out.append('-' if self.is_ref else self.upload)
-        out.append('-' if not self.with_deleg else self.tpc_src_d)
-        out.append('-' if not self.without_deleg else self.tpc_src_nd)
-        out.append('-' if not self.with_deleg else self.tpc_dst_d)
-        out.append('-' if not self.without_deleg else self.tpc_dst_nd)
+        out.append(self.tpc_src_nd if not self.with_deleg else self.tpc_src_d)
+        out.append(self.tpc_dst_nd if not self.with_deleg else self.tpc_dst_d)
         out.append(self.download)
         out.append('%s/%s'%(self.get_successes(), len(self.rc)))
         return out
@@ -272,13 +262,13 @@ class SmokeSummary(object):
         self.tpc_dst_nd = self._status(4)
         self.download = self._status(5)
 
-        if self.is_ref or not self.without_deleg:
+        if self.is_ref or self.with_deleg:
             del self.rc[4]
 
         if self.is_ref or not self.with_deleg:
             del self.rc[3]
 
-        if not self.without_deleg:         
+        if self.with_deleg:         
             del self.rc[2]
 
         if not self.with_deleg:
@@ -346,8 +336,7 @@ class Report(object):
     def create_smoke_summary(self):
         successes = get_dict_value(['tests', 'success'], self.raw_json)
         failures = get_dict_value(['tests', 'failure'], self.raw_json)
-        d = get_dict_value(['task-phases', 'tpc', 'with-delegation'], self.config)
-        nd = get_dict_value(['task-phases', 'tpc', 'without-delegation'], self.config)
+        deleg = get_dict_value(['task-phases', 'tpc', 'with-delegation'], self.config)
         num_tests = 0
 
         if successes:
@@ -355,7 +344,7 @@ class Report(object):
                 if 'round-trip' in name:
                     task = get_dict_value([name, 'task'], successes)
                     id = get_dict_value(['endpt_id'], task)
-                    self._update_smoke(id, task, d, nd)
+                    self._update_smoke(id, task, deleg)
                     num_tests +=1
 
         if failures:
@@ -363,7 +352,7 @@ class Report(object):
                 if 'round-trip' in name:
                     task = get_dict_value([name, 'task'], failures)
                     id = get_dict_value(['endpt_id'], task)
-                    self._update_smoke(id, task, d, nd)
+                    self._update_smoke(id, task, deleg)
                     num_tests +=1
 
         '''
@@ -386,7 +375,7 @@ class Report(object):
             else:
                 sound.append(summary)
                            
-        self.summary_lines = self._create_smoke_summary_output(num_tests, sound, problematic)
+        self.summary_lines = self._create_smoke_summary_output(num_tests, deleg, sound, problematic)
         path = get_summary_path(self.config, 'smoke-summary-name', 'txt')
         print_lines_to_file(path, self.summary_lines)
         return path
@@ -435,18 +424,20 @@ class Report(object):
     def _create_full_mesh_summary_output(self, tested, unreachable):
         mesh = len(tested)
         total = 0 if mesh == 0 else (mesh - 1)*2
+        deleg = get_dict_value(['task-phases', 'tpc', 'with-delegation'], self.config)
 
         lines = []
         lines.append("XROOTD FULL MESH TEST SUMMARY")
         lines.append(self.timestamp)
         lines.append("")
         lines.append("Client: %s"%socket.gethostname())
+        lines.append("")
         lines.append("XrootD version: %s"%get_dict_value(['xrootd-settings', 'version'], self.config))
         lines.append("")
+        lines.append("Credential delegation: %s"%("ON" if deleg else "OFF"))
+        lines.append("")
         cksum = get_dict_value(['xrootd-settings','cksum'], self.config)
-        if not cksum:
-            cksum = 'OFF'
-        lines.append("Checksum: %s"%cksum)
+        lines.append("Checksum: %s"%(cksum if cksum else "OFF"))
         lines.append("")
         lines.append("Tests per viable endpoint: %s"%total)
         lines.append("")
@@ -497,46 +488,47 @@ class Report(object):
 
         return lines
 
-    def _create_smoke_summary_output(self, total, sound, problematic):
+    def _create_smoke_summary_output(self, total, deleg, sound, problematic):
         lines = []
         lines.append("XROOTD SMOKE TEST SUMMARY")
         lines.append(self.timestamp)
         lines.append("")
         lines.append("Client: %s"%socket.gethostname())
+        lines.append("")
         lines.append("XrootD version: %s"%get_dict_value(['xrootd-settings', 'version'], self.config))
         lines.append("")
         lines.append("Reference server: %s"%get_dict_value(['reference-endpoint', 'id'], self.config))
         lines.append("")
+        lines.append("Credential delegation: %s"%("ON" if deleg else "OFF"))
+        lines.append("")
         cksum = get_dict_value(['xrootd-settings','cksum'], self.config)
-        if not cksum:
-            cksum = 'OFF'
-        lines.append("Checksum: %s"%cksum)
+        lines.append("Checksum: %s"%(cksum if cksum else "OFF"))
         lines.append("")
         lines.append("Total number of round-trip tests: %s"%total)
         lines.append("")
 
         lines.append("--------------------------------SOUND ENDPOINTS---------------------------------")
         lines.append("")
-        lines.append(SMOKE_FORMAT.format('SCORE', 'ENDPT', 'TYPE', 'UP', 'S_d', 'S_nd', 'D_d', 'D_nd', 'DOWN', ''))
+        lines.append(SMOKE_FORMAT.format('SCORE', 'ENDPT', 'TYPE', 'UP', 'SRC', 'DST', 'DN', ''))
         lines.append("--------------------------------------------------------------------------------")
         for summary in sound:
             (typ, score) = get_dict_value([summary.name], self.endpointmap)
             sts = summary.stats()
             lines.append(SMOKE_FORMAT.format(summary.score, summary.name, typ, 
                                                     sts[0], sts[1], sts[2], sts[3], 
-                                                    sts[4], sts[5], sts[6]))
+                                                    sts[4]))
 
         lines.append("")
         lines.append("-----------------------------PROBLEMATIC ENDPOINTS------------------------------")
         lines.append("")
-        lines.append(SMOKE_FORMAT.format('SCORE', 'ENDPT', 'TYPE', 'UP', 'S_d', 'S_nd', 'D_d', 'D_nd', 'DOWN', ''))
+        lines.append(SMOKE_FORMAT.format('SCORE', 'ENDPT', 'TYPE', 'UP', 'SRC', 'DST', 'DN', ''))
         lines.append("--------------------------------------------------------------------------------")
         for summary in problematic:
             (typ, score) = get_dict_value([summary.name], self.endpointmap)
             sts = summary.stats()
             lines.append(SMOKE_FORMAT.format(summary.score, summary.name, typ, 
                                                     sts[0], sts[1], sts[2], sts[3], 
-                                                    sts[4], sts[5], sts[6]))
+                                                    sts[4]))
         
         lines.append("")            
         lines.append("--------------------------------ERROR DETAILS-----------------------------------")
@@ -572,12 +564,12 @@ class Report(object):
             e['score'] = score
         print_json_to_file(config_file, config)
 
-    def _update_smoke(self, endpt_id, task, d, nd):
+    def _update_smoke(self, endpt_id, task, d):
         summary = self.endpoints.get(endpt_id, None)
 
         if not summary:
             is_ref = endpt_id == get_endpoint_name(get_dict_value(['reference-endpoint'], self.config))
-            summary = SmokeSummary(endpt_id, d, nd, is_ref)
+            summary = SmokeSummary(endpt_id, d, is_ref)
             self.endpoints[endpt_id] = summary
 
         summary.update(task)
