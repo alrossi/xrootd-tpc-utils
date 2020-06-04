@@ -1,0 +1,87 @@
+{
+    "endpoints": [
+        {
+            "id": "WISCONSIN", 
+            "score": 0, 
+            "type": "HDFS", 
+            "url": "root://pubxrootd.hep.wisc.edu//osg/vo/dteam", 
+            "version": "4.10.1"
+        }
+    ], 
+    "gsi-settings": {
+        "generate-proxy": false, 
+        "proxy-init-args": "-voms dteam -hours 72", 
+        "proxy-init-exec": "voms-proxy-init", 
+        "x509-cert-dir": "/etc/grid-security/certificates", 
+        "x509-user-cert": "/etc/grid-security/xrootd/hostcert.pem", 
+        "x509-user-key": "/etc/grid-security/xrootd/hostkey.pem", 
+        "x509-user-proxy": "/etc/grid-security/xrootd/robocert"
+    }, 
+    "local-data-file": {
+        "generate": true, 
+        "generator-args": "if=/dev/zero of=/var/tmp/xrootd-test-data count=1 bs=1048576", 
+        "generator-exec": "dd", 
+        "name": "xrootd-test-data", 
+        "parent": "/var/tmp", 
+        "uuid": "999b4ef3-68f9-4120-ac35-63383e7a6fda"
+    }, 
+    "reference-endpoint": {
+        "id": "SLAC", 
+        "score": 17, 
+        "type": "XrootD", 
+        "url": "root://griddev03.slac.stanford.edu:2094//xrootd/atlas/tpctest", 
+        "version": "4.9.1"
+    }, 
+    "reference-endpoints": [
+        {
+            "id": "SLAC", 
+            "score": 17, 
+            "type": "XrootD", 
+            "url": "root://griddev03.slac.stanford.edu:2094//xrootd/atlas/tpctest", 
+            "version": "4.9.1"
+        }
+    ], 
+    "report": {
+        "email-from": "arossi@fnal.gov", 
+        "email-to": [
+            "arossi@fnal.gov"
+        ], 
+        "full-mesh-output-name": "test-mesh", 
+        "full-mesh-summary-name": "test-mesh-summary", 
+        "log-dir": "/var/tmp/smoke-testing", 
+        "output-dir": "/var/tmp/smoke-testing", 
+        "send-email": true, 
+        "smoke-output-name": "test", 
+        "smoke-summary-name": "test-summary", 
+        "smtp-host": "ex-smtp.fnal.gov"
+    }, 
+    "run-timestamp": "20200529163827", 
+    "task-phases": {
+        "download": {
+            "capture-streams": true, 
+            "timeout-in-seconds": 60
+        }, 
+        "remove": {
+            "capture-streams": true, 
+            "timeout-in-seconds": 60
+        }, 
+        "tpc": {
+            "capture-streams": true, 
+            "timeout-in-seconds": 120, 
+            "with-delegation": true
+        }, 
+        "upload": {
+            "capture-streams": true, 
+            "timeout-in-seconds": 60
+        }
+    }, 
+    "xrootd-settings": {
+        "cksum": "-C adler32", 
+        "debug-args": "-d 3", 
+        "home": "/usr/share/xrootd/v4.11.2", 
+        "lib": "lib64", 
+        "version": "v4.11.2", 
+        "xrdcp": "/usr/share/xrootd/v4.11.2/bin/xrdcp", 
+        "xrdfs": "/usr/share/xrootd/v4.11.2/bin/xrdfs"
+    }
+}

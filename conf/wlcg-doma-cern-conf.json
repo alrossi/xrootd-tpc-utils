@@ -2,112 +2,112 @@
     "endpoints": [
         {
             "id": "RAL-LCG2", 
-            "score": 9, 
+            "score": 17, 
             "type": "Echo", 
             "url": "root://echo.stfc.ac.uk//dteam:test/", 
             "version": "?"
         }, 
         {
             "id": "RAL-CEPH", 
-            "score": 18, 
+            "score": 0, 
             "type": "CEPH", 
             "url": "root://ceph-test-gw683.gridpp.rl.ac.uk//dteam:test/", 
             "version": "?"
         }, 
         {
             "id": "PRAGUE", 
-            "score": 20, 
+            "score": 17, 
             "type": "DPM", 
             "url": "root://golias100.farm.particle.cz:1094//dpm/farm.particle.cz/home/dteam/tpc-test", 
             "version": "1.12.0"
         }, 
         {
             "id": "UKI-BRUNEL", 
-            "score": 20, 
+            "score": 17, 
             "type": "DPM", 
             "url": "root://dc2-grid-64.brunel.ac.uk:1094//dpm/brunel.ac.uk/home/dteam/wlcg-tpc", 
             "version": "1.10.4"
         }, 
         {
             "id": "UKI-MAN1", 
-            "score": 20, 
+            "score": 17, 
             "type": "DPM", 
             "url": "root://vm33.in.tier2.hep.manchester.ac.uk:1094//dpm/tier2.hep.manchester.ac.uk/home/dteam", 
             "version": "1.12.0"
         }, 
         {
             "id": "UKI-MAN2", 
-            "score": 20, 
+            "score": 17, 
             "type": "DPM", 
             "url": "root://bohr3226.tier2.hep.manchester.ac.uk:1094//dpm/tier2.hep.manchester.ac.uk/home/dteam", 
             "version": "1.12.0"
         }, 
         {
             "id": "UKI-LANC", 
-            "score": 20, 
+            "score": 17, 
             "type": "DPM", 
             "url": "root://fal-pygrid-30.lancs.ac.uk:1094//dpm/lancs.ac.uk/home/dteam", 
             "version": "1.10.4"
         }, 
         {
             "id": "CERN-TRUNK", 
-            "score": 19, 
+            "score": 17, 
             "type": "DPM", 
             "url": "root://dpmhead-trunk.cern.ch//dpm/cern.ch/home/dteam", 
             "version": "1.11.0"
         }, 
         {
             "id": "DESY-PROM", 
-            "score": 20, 
+            "score": 17, 
             "type": "dCache", 
             "url": "root://prometheus.desy.de:1095//VOs/dteam", 
             "version": "5.2.0-SNAPSHOT"
         }, 
         {
             "id": "CERN-EOS", 
-            "score": 20, 
+            "score": 17, 
             "type": "EOS", 
             "url": "root://eospps.cern.ch//eos/opstest/tpc/", 
             "version": "4.3.8"
         }, 
         {
             "id": "SLAC", 
-            "score": 20, 
+            "score": 17, 
             "type": "XrootD", 
             "url": "root://griddev03.slac.stanford.edu:2094//xrootd/atlas/tpctest", 
             "version": "4.9.1"
         }, 
         {
             "id": "OU", 
-            "score": 20, 
+            "score": 10, 
             "type": "XrootD", 
             "url": "root://se1.oscer.ou.edu//xrd/dteam/doma/", 
             "version": "4.9.1"
         }, 
         {
             "id": "UNI-BONN", 
-            "score": 20, 
+            "score": 17, 
             "type": "CephFS", 
             "url": "root://xrootd.physik.uni-bonn.de//cephfs/grid/dteam/", 
-            "version": "4.11.2-rc2"
+            "version": "4.10.0-rc2"
         }, 
         {
             "id": "FNAL", 
-            "score": 20, 
+            "score": 17, 
             "type": "dCache", 
             "url": "root://stkendca06a.fnal.gov:1094//pnfs/fnal.gov/VOs/dteam", 
-            "version": "6.2.0-SNAPSHOT"
+            "version": "5.2.0-SNAPSHOT"
         }, 
         {
             "id": "BRUSSELS", 
-            "score": 20, 
+            "score": 17, 
             "type": "dCache", 
-            "url": "root://maite.iihe.ac.be//pnfs/iihe//dteam", 
+            "url": "root://maite.iihe.ac.be/pnfs/iihe//dteam", 
             "version": "4.2.18"
         }, 
         {
             "id": "TRIUMF", 
-            "score": 20, 
+            "score": 11, 
             "type": "dCache", 
             "url": "root://ppshead.lcg.triumf.ca:1094//dteam", 
             "version": "4.2.27"
@@ -128,66 +128,17 @@
         }, 
         {
             "id": "BNL", 
-            "score": 0, 
+            "score": 19, 
             "type": "dCache", 
             "url": "root://dcqos001.usatlas.bnl.gov:1096//pnfs/usatlas.bnl.gov/data/dteam/", 
             "version": "5.2"
         }, 
         {
             "id": "IN2P3-DOMA", 
-            "score": 20, 
+            "score": 19, 
             "type": "xrootd", 
-            "url": "root://ccxrootddoma.in2p3.fr:1094//xrootd/dteam/doma/", 
+            "url": "root://ccxrdli039.in2p3.fr:1094//xrootd/dteam/doma/", 
             "version": "4.11.0"
-        }, 
-        {
-            "id": "AGLT2", 
-            "score": 20, 
-            "type": "dCache", 
-            "url": "root://xrootd.aglt2.org:1094//pnfs/aglt2.org/dteam", 
-            "version": "5.2.16"
-        }, 
-        {
-            "id": "PIC", 
-            "score": 20, 
-            "type": "dCache", 
-            "url": "root://xrootd.pic.es://pnfs/pic.es/data/dteam/tpc-test", 
-            "version": "5.2.6"
-        }, 
-        {
-            "id": "TOKYO-LCG2", 
-            "score": 8, 
-            "type": "DPM", 
-            "url": "root://lcg-se01.icepp.jp:1094//dpm/icepp.jp/home/dteam", 
-            "version": "1.12.1"
-        }, 
-        {
-            "id": "INFN-NAPOLI", 
-            "score": 8, 
-            "type": "DPM", 
-            "url": "root://t2-dpm-01.na.infn.it:1094//dpm/na.infn.it/home/dteam", 
-            "version": "1.13.2"
-        }, 
-        {
-            "id": "UCSD", 
-            "score": 0, 
-            "type": "Xrootd", 
-            "url": "root://redirector.t2.ucsd.edu:1094//store/user/dteam/", 
-            "version": "4.11.1-1.osg34.el7"
-        }, 
-        {
-            "id": "TAIWAN-LCG2", 
-            "score": 7, 
-            "type": "DPM", 
-            "url": "root://f-dpm000.grid.sinica.edu.tw//dpm/grid.sinica.edu.tw/home/dteam/", 
-            "version": "1.13.2"
-        }, 
-        {
-            "id": "WISCONSIN", 
-            "score": 0, 
-            "type": "HDFS", 
-            "url": "root://pubxrootd.hep.wisc.edu//osg/vo/dteam", 
-            "version": "4.10.1"
         }
     ], 
     "gsi-settings": {
@@ -228,22 +179,22 @@
         "generator-exec": "dd", 
         "name": "xrootd-test-data", 
         "parent": "/var/tmp", 
-        "uuid": "acc4111f-f804-494a-934c-283e29b5719f"
+        "uuid": "6116f135-5071-4a24-a329-079a248034b9"
     }, 
     "reference-endpoint": {
-        "id": "SLAC", 
-        "score": 17, 
-        "type": "XrootD", 
-        "url": "root://griddev03.slac.stanford.edu:2094//xrootd/atlas/tpctest", 
-        "version": "4.9.1"
+        "id": "CERN-TRUNK", 
+        "score": 12, 
+        "type": "DPM", 
+        "url": "root://dpmhead-trunk.cern.ch//dpm/cern.ch/home/dteam", 
+        "version": "1.11.0"
     }, 
     "reference-endpoints": [
         {
-            "id": "SLAC", 
-            "score": 17, 
-            "type": "XrootD", 
-            "url": "root://griddev03.slac.stanford.edu:2094//xrootd/atlas/tpctest", 
-            "version": "4.9.1"
+            "id": "CERN-TRUNK", 
+            "score": 12, 
+            "type": "DPM", 
+            "url": "root://dpmhead-trunk.cern.ch//dpm/cern.ch/home/dteam", 
+            "version": "1.11.0"
         }
     ], 
     "report": {
@@ -260,7 +211,7 @@
         "smoke-summary-name": "wlcg-doma-summary", 
         "smtp-host": "ex-smtp.fnal.gov"
     }, 
-    "run-timestamp": "20200604100001", 
+    "run-timestamp": "20200221134715", 
     "task-phases": {
         "download": {
             "capture-streams": false, 
@@ -283,10 +234,10 @@
     "xrootd-settings": {
         "cksum": "-C adler32", 
         "debug-args": "-d 3", 
-        "home": "/usr/share/xrootd/v4.11.2", 
+        "home": "/usr/share/xrootd/v4.10.0", 
         "lib": "lib64", 
-        "version": "v4.11.2", 
-        "xrdcp": "/usr/share/xrootd/v4.11.2/bin/xrdcp", 
-        "xrdfs": "/usr/share/xrootd/v4.11.2/bin/xrdfs"
+        "version": "v4.10.0", 
+        "xrdcp": "/usr/share/xrootd/v4.10.0/bin/xrdcp", 
+        "xrdfs": "/usr/share/xrootd/v4.10.0/bin/xrdfs"
     }
 }
